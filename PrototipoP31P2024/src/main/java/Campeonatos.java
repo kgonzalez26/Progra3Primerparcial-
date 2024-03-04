@@ -111,6 +111,18 @@ public class Campeonatos extends javax.swing.JPanel {
         }
         return equipos[indiceEquipo];
     }
+    
+    private void borrarEquipos() {
+        for (int i = 0; i < equipos.length; i++) {
+            equipos[i] = null;
+        }
+        for (int i = 0; i < resultados.length; i++) {
+            for (int j = 0; j < resultados[i].length; j++) {
+                resultados[i][j] = 0;
+            }
+        }
+        System.out.println("Se han borrado todos los equipos.");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -273,7 +285,7 @@ public class Campeonatos extends javax.swing.JPanel {
     }//GEN-LAST:event_ResulActionPerformed
 
     private void borrarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarEquiposActionPerformed
-
+        borrarEquipos();
     }//GEN-LAST:event_borrarEquiposActionPerformed
 
 
