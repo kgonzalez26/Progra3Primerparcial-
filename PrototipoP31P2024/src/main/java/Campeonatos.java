@@ -2,18 +2,114 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-
+import java.util.Random;
 /**
  *
  * @author Maynor
  */
 public class Campeonatos extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Campeonatos
-     */
+    private String[] equipos;
+    private int[][] resultados;
+    
     public Campeonatos() {
         initComponents();
+        equipos = new String[6];
+        resultados = new int[6][6];
+    }
+    
+    private int generarNumeroAleatorio(int min, int max) {
+        Random rand = new Random();
+        return rand.nextInt(max - min + 1) + min;
+    }
+
+    private void simularPartidos() {
+        for (int i = 0; i < equipos.length; i++) {
+            for (int j = i + 1; j < equipos.length; j++) {
+                int golesEquipoLocal = generarNumeroAleatorio(0, 10);
+                int golesEquipoVisitante = generarNumeroAleatorio(0, 10);
+                resultados[i][j] = golesEquipoLocal;
+                resultados[j][i] = golesEquipoVisitante;
+            }
+        }
+    }
+
+    private int[] calcularPuntos() {
+        int[] puntos = new int[equipos.length];
+        for (int i = 0; i < equipos.length; i++) {
+            for (int j = 0; j < equipos.length; j++) {
+                if (i != j) {
+                    if (resultados[i][j] != -1 || resultados[j][i] != -1) {
+                        if (resultados[i][j] > resultados[j][i]) {
+                            puntos[i] += 3; // Equipo i gana
+                        } else if (resultados[i][j] < resultados[j][i]) {
+                            puntos[j] += 3; // Equipo j gana
+                        } else {
+                            puntos[i] += 1; // Empate
+                            puntos[j] += 1;
+                        }
+                    }
+                }
+            }
+        }
+        return puntos;
+    }
+
+    private void mostrarTabla() {
+        int[] puntos = calcularPuntos();
+        String tabla = "Tabla de Posiciones:\n";
+        tabla += "Equipo\tPartidos\tGanados\tEmpatados\tPerdidos\tPuntos\n";
+        for (int i = 0; i < equipos.length; i++) {
+            int partidosJugados = 0;
+            int partidosGanados = 0;
+            int partidosEmpatados = 0;
+            int partidosPerdidos = 0;
+            for (int j = 0; j < equipos.length; j++) {
+                if (i != j) {
+                    if (resultados[i][j] != -1 || resultados[j][i] != -1) {
+                        partidosJugados++;
+                        if (resultados[i][j] > resultados[j][i]) {
+                            partidosGanados++;
+                        } else if (resultados[i][j] < resultados[j][i]) {
+                            partidosPerdidos++;
+                        } else {
+                            partidosEmpatados++;
+                        }
+                    }
+                }
+            }
+            tabla += equipos[i] + "\t" + partidosJugados + "\t\t" + partidosGanados + "\t"
+                    + partidosEmpatados + "\t\t" + partidosPerdidos + "\t\t" + puntos[i] + "\n";
+        }
+        System.out.println(tabla);
+    }
+    
+    
+
+    private String equipoGanador() {
+        int[] puntos = calcularPuntos();
+        int maxPuntos = 0;
+        int indiceEquipo = 0;
+        for (int i = 0; i < puntos.length; i++) {
+            if (puntos[i] > maxPuntos) {
+                maxPuntos = puntos[i];
+                indiceEquipo = i;
+            }
+        }
+        return equipos[indiceEquipo];
+    }
+
+    private String equipoBaja() {
+        int[] puntos = calcularPuntos();
+        int minPuntos = puntos[0];
+        int indiceEquipo = 0;
+        for (int i = 1; i < puntos.length; i++) {
+            if (puntos[i] < minPuntos) {
+                minPuntos = puntos[i];
+                indiceEquipo = i;
+            }
+        }
+        return equipos[indiceEquipo];
     }
 
     /**
