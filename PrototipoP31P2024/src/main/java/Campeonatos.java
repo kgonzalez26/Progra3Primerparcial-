@@ -25,19 +25,170 @@ public class Campeonatos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        IngresoEquipo = new javax.swing.JTextField();
+        IngresarEquipos = new javax.swing.JButton();
+        Table = new javax.swing.JButton();
+        SimularPartidos = new javax.swing.JButton();
+        Resul = new javax.swing.JButton();
+        borrarEquipos = new javax.swing.JButton();
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Equipos de un campeonato");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("Equipos de un campeonato");
+
+        IngresoEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IngresoEquipoActionPerformed(evt);
+            }
+        });
+
+        IngresarEquipos.setText("Ingresar Equipos");
+        IngresarEquipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IngresarEquiposActionPerformed(evt);
+            }
+        });
+
+        Table.setText("Mostrar Tabla");
+        Table.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TableActionPerformed(evt);
+            }
+        });
+
+        SimularPartidos.setText("Simular Partidos");
+        SimularPartidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SimularPartidosActionPerformed(evt);
+            }
+        });
+
+        Resul.setText("Calcular Resultado");
+        Resul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResulActionPerformed(evt);
+            }
+        });
+
+        borrarEquipos.setText("Borrar y restablecer");
+        borrarEquipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarEquiposActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(IngresoEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(IngresarEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Table, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(borrarEquipos, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(SimularPartidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(Resul, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 1, Short.MAX_VALUE)))
+                .addGap(27, 27, 27))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(136, 136, 136))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IngresoEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IngresarEquipos))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Table)
+                    .addComponent(SimularPartidos)
+                    .addComponent(Resul))
+                .addGap(18, 18, 18)
+                .addComponent(borrarEquipos)
+                .addContainerGap(115, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void IngresoEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresoEquipoActionPerformed
+        // ignorar este boton
+    }//GEN-LAST:event_IngresoEquipoActionPerformed
+
+    private void IngresarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarEquiposActionPerformed
+
+        String nombreEquipo = IngresoEquipo.getText();
+
+        int equiposIngresados = 0;
+        for (String equipo : equipos) {
+            if (equipo != null) {
+                equiposIngresados++;
+            }
+        }
+
+        if (equiposIngresados < 6) {
+            equipos[equiposIngresados] = nombreEquipo;
+            equiposIngresados++;
+
+            IngresoEquipo.setText("");
+
+            if (equiposIngresados == 6) {
+                System.out.println("Se han ingresado los 6 equipos.");
+            }
+        } else {
+            System.out.println("Ya se han ingresado los 6 equipos.");
+        }
+    }//GEN-LAST:event_IngresarEquiposActionPerformed
+
+    private void TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TableActionPerformed
+        mostrarTabla();
+    }//GEN-LAST:event_TableActionPerformed
+
+    private void SimularPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SimularPartidosActionPerformed
+        simularPartidos();
+    }//GEN-LAST:event_SimularPartidosActionPerformed
+
+    private void ResulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResulActionPerformed
+        String ganador = equipoGanador();
+        String equipoBaja = equipoBaja();
+        System.out.println("El equipo ganador es: " + ganador);
+        System.out.println("El equipo que baja de categoría es: " + equipoBaja);
+    }//GEN-LAST:event_ResulActionPerformed
+
+    private void borrarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarEquiposActionPerformed
+
+    }//GEN-LAST:event_borrarEquiposActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton IngresarEquipos;
+    private javax.swing.JTextField IngresoEquipo;
+    private javax.swing.JButton Resul;
+    private javax.swing.JButton SimularPartidos;
+    private javax.swing.JButton Table;
+    private javax.swing.JButton borrarEquipos;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
