@@ -1,0 +1,36 @@
+commit cfc86d59e03a88e1580e2ddc13a1680a9e9b81ea (HEAD -> main, origin/main, origin/HEAD)
+Author: KevinGonzalezLap <kgonzalezs18@miumg.edu.gt>
+Date:   Mon Mar 4 10:48:11 2024 -0600
+
+    Agregando funcion para ejecutar ventana
+
+commit 67785cc4a5292b97bd4f7c5130ee2253882f3870
+Author: KevinGonzalezLap <kgonzalezs18@miumg.edu.gt>
+Date:   Mon Mar 4 10:43:33 2024 -0600
+
+    Funcion para restablecer
+
+commit 29810d38a904d21198bb5e5a570f7a3b29eaa8b0
+Author: KevinGonzalezLap <kgonzalezs18@miumg.edu.gt>
+Date:   Mon Mar 4 10:42:11 2024 -0600
+
+    Agregando funciones para calcular equipos
+
+commit 405845eb6f330a82f01b62e12865d9c0b660a93a
+Author: KevinGonzalezLap <kgonzalezs18@miumg.edu.gt>
+Date:   Mon Mar 4 10:40:32 2024 -0600
+
+    Agregando botones a la ventana
+
+commit 9cd60c3433f7f44e09489e2e9a24e2cb5d28e312
+Author: KevinGonzalezLap <kgonzalezs18@miumg.edu.gt>
+Date:   Mon Mar 4 10:37:19 2024 -0600
+
+    Creacion de app para campeonatos
+
+commit 02d10f28deed9486ce82e187756ab815065ae32b
+Author: Kevin González Sosa <123187500+kgonzalez26@users.noreply.github.com>
+Date:   Mon Mar 4 10:35:07 2024 -0600
+
+    Initial commit
+  }
